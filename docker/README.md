@@ -1,4 +1,4 @@
-# ![](https://github.com/signalfx/integrations/blob/master/collectd-docker/img/integrations_docker.png) Docker
+# ![](https://github.com/signalfx/integrations/blob/master/docker/img/integrations_docker.png) Docker
 
 - [Description](#description)
 - [Requirements and Dependencies](#requirements-and-dependencies)
@@ -34,10 +34,6 @@
 Sample of built-in dashboard in SignalFx:
 
 ![](././img/dashboard_docker.png)
-
-### METRICS
-
-For documentation of the metrics and dimensions emitted by this plugin, [click here](./docs).
 
 ### LICENSE
 

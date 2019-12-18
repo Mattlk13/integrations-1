@@ -10,7 +10,7 @@
 
 ### DESCRIPTION
 
-Configure <a target="_blank" href="https://docs.traefik.io/configuration/metrics">Traefik</a> to expose internal metrics as prometheus metrics at an endpoint. Install the <a target="_blank" href="https://github.com/signalfx/signalfx-agent">SignalFx Smart Agent</a> and configure it to access SignalFx and use the <a target="_blank" href="https://github.com/signalfx/signalfx-agent/blob/9feb3f77fdf6de46dc476f62568ad4f9b725660c/docs/monitors/prometheus-exporter.md">prometheus-exporter</a> monitor.
+Configure <a target="_blank" href="https://docs.traefik.io/observability/metrics/prometheus/">Traefik</a> to expose internal metrics as prometheus metrics at an endpoint. Install the <a target="_blank" href="https://github.com/signalfx/signalfx-agent">SignalFx Smart Agent</a> and configure it to access SignalFx and use the <a target="_blank" href="https://github.com/signalfx/signalfx-agent/blob/9feb3f77fdf6de46dc476f62568ad4f9b725660c/docs/monitors/prometheus-exporter.md">prometheus-exporter</a> monitor.
 
 ### REQUIREMENTS AND DEPENDENCIES
 
@@ -81,10 +81,6 @@ The Traefik-related metrics are for monitoring Traefik itself. For instance, the
 ![Backends](./img/traefik_backends.png)
 
 The entrypoint-related and backend-related metrics also include metrics for the number of entrypoints connections, backends connections and backend server up/down flag.
-
-### METRICS
-
-For documentation of the metrics emitted, [click here](./docs).
 
 ### LICENSE
 

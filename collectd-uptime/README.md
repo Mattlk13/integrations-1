@@ -41,11 +41,7 @@ There are no configuration options for this plugin.
 
 ### USAGE
 
-This plugin provide the time that an individual host has been up since last boot.
-
-### METRICS
-
-For documentation of the metrics and dimensions emitted by this plugin, [click here](./docs).
+This plugin provides the time that an individual host has been up since last boot.
 
 ### LICENSE
 

@@ -50,6 +50,10 @@ Configuration](../monitor-config.html#common-configuration).**
 | `password` | no | `string` | Basic Auth password to use on each request, if any. |
 | `useHTTPS` | no | `bool` | If true, the agent will connect to the exporter using HTTPS instead of plain HTTP. (**default:** `false`) |
 | `skipVerify` | no | `bool` | If useHTTPS is true and this option is also true, the exporter's TLS cert will not be verified. (**default:** `false`) |
+| `caCertPath` | no | `string` | Path to the CA cert that has signed the TLS cert, unnecessary if `skipVerify` is set to false. |
+| `clientCertPath` | no | `string` | Path to the client TLS cert to use for TLS required connections |
+| `clientKeyPath` | no | `string` | Path to the client TLS key to use for TLS required connections |
+| `httpTimeout` | no | `int64` | HTTP timeout duration for both read and writes. This should be a duration string that is accepted by https://golang.org/pkg/time/#ParseDuration (**default:** `10s`) |
 | `useServiceAccount` | no | `bool` | Use pod service account to authenticate. (**default:** `false`) |
 | `metricPath` | no | `string` | Path to the metrics endpoint on the exporter server, usually `/metrics` (the default). (**default:** `/metrics`) |
 | `sendAllMetrics` | no | `bool` | Send all the metrics that come out of the Prometheus exporter without any filtering.  This option has no effect when using the prometheus exporter monitor directly since there is no built-in filtering, only when embedding it in other monitors. (**default:** `false`) |
@@ -74,7 +78,7 @@ Metrics that are categorized as
 All of the following metrics are part of the `admission_quota_controller` metric group. All of
 the non-default metrics below can be turned on by adding `admission_quota_controller` to the
 monitor config option `extraGroups`:
- - `admission_quota_controller_adds` (*cumulative*)<br>    (Deprecated) Total number of adds handled by workqueue: admission_quota_controller
+ - ***`admission_quota_controller_adds`*** (*cumulative*)<br>    (Deprecated) Total number of adds handled by workqueue: admission_quota_controller
  - `admission_quota_controller_depth` (*gauge*)<br>    (Deprecated) Current depth of workqueue: admission_quota_controller
  - `admission_quota_controller_longest_running_processor_microseconds` (*gauge*)<br>    (Deprecated) How many microseconds has the longest running processor for admission_quota_controller been running.
  - `admission_quota_controller_queue_latency` (*cumulative*)<br>    (Deprecated) How long an item stays in workqueueadmission_quota_controller before being requested. (sum)
@@ -165,9 +169,9 @@ All of the following metrics are part of the `apiserver_request` metric group. A
 the non-default metrics below can be turned on by adding `apiserver_request` to the
 monitor config option `extraGroups`:
  - `apiserver_request` (*cumulative*)<br>    Counter of apiserver requests broken out for each verb, dry run value, group, version, resource, scope, component, client, and HTTP response contentType and code.
- - `apiserver_request_count` (*cumulative*)<br>    (Deprecated) Counter of apiserver requests broken out for each verb, group, version, resource, scope, component, client, and HTTP response contentType and code.
+ - ***`apiserver_request_count`*** (*cumulative*)<br>    (Deprecated) Counter of apiserver requests broken out for each verb, group, version, resource, scope, component, client, and HTTP response contentType and code.
  - `apiserver_request_duration_seconds` (*cumulative*)<br>    Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component. (sum)
- - `apiserver_request_duration_seconds_bucket` (*cumulative*)<br>    Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component. (bucket)
+ - ***`apiserver_request_duration_seconds_bucket`*** (*cumulative*)<br>    Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component. (bucket)
  - `apiserver_request_duration_seconds_count` (*cumulative*)<br>    Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component. (count)
  - `apiserver_request_latencies` (*cumulative*)<br>    (Deprecated) Response latency distribution in microseconds for each verb, group, version, resource, subresource, scope and component. (sum)
  - `apiserver_request_latencies_bucket` (*cumulative*)<br>    (Deprecated) Response latency distribution in microseconds for each verb, group, version, resource, subresource, scope and component. (bucket)
@@ -438,8 +442,8 @@ monitor config option `extraGroups`:
 All of the following metrics are part of the `workqueue` metric group. All of
 the non-default metrics below can be turned on by adding `workqueue` to the
 monitor config option `extraGroups`:
- - `workqueue_adds` (*cumulative*)<br>    Total number of adds handled by workqueue
- - `workqueue_depth` (*gauge*)<br>    Current depth of workqueue
+ - ***`workqueue_adds`*** (*cumulative*)<br>    Total number of adds handled by workqueue
+ - ***`workqueue_depth`*** (*gauge*)<br>    Current depth of workqueue
  - `workqueue_longest_running_processor_seconds` (*gauge*)<br>    How many seconds has the longest running processor for workqueue been running.
  - `workqueue_queue_duration_seconds` (*cumulative*)<br>    How long in seconds an item stays in workqueue before being requested. (sum)
  - `workqueue_queue_duration_seconds_bucket` (*cumulative*)<br>    How long in seconds an item stays in workqueue before being requested. (bucket)
